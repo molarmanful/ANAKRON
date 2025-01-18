@@ -1,5 +1,5 @@
 {
-  description = "A retro bitmap font inspired by DOS VGA fonts and made for the modern screen";
+  description = "A retro bitmap font made for the modern screen";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
