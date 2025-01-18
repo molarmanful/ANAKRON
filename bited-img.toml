@@ -1,7 +1,7 @@
-[anakron]
+[ANAKRON]
 font_size = 12
 
-[anakron.clrs]
+[ANAKRON.clrs]
 bg = "#000000"
 fg = "#ffffff"
 
@@ -25,7 +25,7 @@ base = [
   "#ffffff",
 ]
 
-[anakron.gens]
+[ANAKRON.gens]
 sample = [
   "prog",
   "eng",

@@ -1,4 +1,4 @@
-[anakron]
+[ANAKRON]
 xs = [2, 3]
 zip_includes = ["README.md", "LICENSE", "AUTHORS"]
 x_format = "{name}_{x}x"
@@ -9,7 +9,7 @@ f.os2_panose = (2, 0, 6, 9, 0, 0, 0, 0, 0, 0)
 f.os2_weight_width_slope_only = True
 '''
 
-[anakron.sfnt]
+[ANAKRON.sfnt]
 "UniqueID" = "molarmanful: anakron: 2024"
 "Vendor URL" = "https://github.com/molarmanful/anakron"
 "Designer" = "Benjamin Pang"
