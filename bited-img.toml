@@ -25,20 +25,20 @@ base = [
   "#ffffff",
 ]
 
-[ANAKRON.gens]
-sample = [
-  "prog",
-  "eng",
-  "multi",
-  "scala",
-  "clojure",
-  "go",
-  "svelte",
-  "apl",
-  "engalt",
-  "pretty",
-  "math",
-  "box",
-  "braille",
-]
-all = ["header", "sample"]
+# [ANAKRON.gens]
+# sample = [
+#   "prog",
+#   "eng",
+#   "multi",
+#   "scala",
+#   "clojure",
+#   "go",
+#   "svelte",
+#   "apl",
+#   "engalt",
+#   "pretty",
+#   "math",
+#   "box",
+#   "braille",
+# ]
+# all = ["header", "sample"]
