@@ -1,0 +1,32 @@
+---
+name: img
+on:
+  push:
+    paths:
+      - bited-img.toml
+      - src/**
+      - txt/**
+      - flake.nix
+      - flake.lock
+      - img.nix
+      - .github/workflows/img.yml
+    branches: [master]
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  img:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: nixbuild/nix-quick-install-action@v29
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - run: nix run .#anakron-img
+      - name: push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: img txt
