@@ -2,6 +2,8 @@
 name: img
 on:
   push:
+    branches:
+      - main
     paths:
       - bited-img.toml
       - src/**
