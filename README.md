@@ -1,3 +1,5 @@
-# ANAKRON
+<div style="text-align:center">
 
-A retro bitmap font inspired by DOS VGA fonts and made for the modern screen.
+# ![anakron header](img/header.png)
+
+</div>

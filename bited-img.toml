@@ -1,10 +1,12 @@
 [ANAKRON]
 font_size = 12
 
+[ANAKRON.chars]
+width = 40
+
 [ANAKRON.clrs]
 bg = "#000000"
 fg = "#ffffff"
-
 base = [
   "#000000",
   "#aa0000",
@@ -14,7 +16,6 @@ base = [
   "#aa00aa",
   "#00aaaa",
   "#aaaaaa",
-
   "#555555",
   "#ff5555",
   "#55ff55",
