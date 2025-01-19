@@ -1,5 +1,5 @@
 <div align="center">
 
-![anakron header](img/header.png)
+![anakron all](img/all.png)
 
 </div>
