@@ -4,6 +4,9 @@ font_size = 12
 [ANAKRON.chars]
 width = 40
 
+[ANAKRON.map]
+border_clr = "4"
+
 [ANAKRON.clrs]
 bg = "#000000"
 fg = "#ffffff"
