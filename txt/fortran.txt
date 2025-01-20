@@ -1,0 +1,25 @@
+╒═══════════════════════════════════════════════════════════════════════════════════════╕
+│                                        FORTRAN                                        │
+├───────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                       │
+│      1 │ program mandel                                                               │
+│      2 │     implicit none                                                            │
+│      3 │     integer, parameter :: N = 99  ! smaller than half of terminal width      │
+│      4 │     character(3) :: N_str                                                    │
+│      5 │     complex :: c(N,N)  ! coordinates                                         │
+│      6 │     complex :: z(N,N)  ! values for iteration                                │
+│      7 │     integer :: i, j                                                          │
+│      8 │     c = 0.0                                                                  │
+│      9 │     z = 0.0                                                                  │
+│      9 │     do i = 1, N                                                              │
+│     10 │         c(:, i) = c(:, i) + [(cmplx(3.*j/(N-1)-2, 0.),j=0,N-1)]              │
+│     11 │         c(i, :) = c(i, :) + [(cmplx(0., 3.*j/(N-1)-1.5),j=0,N-1)]            │
+│     12 │     end do                                                                   │
+│     13 │     do i = 1, 100                                                            │
+│     14 │         z = z**2 + c                                                         │
+│     15 │     end do                                                                   │
+│     16 │     write(N_str, "(i3)") N                                                   │
+│     17 │     print "("//trim(N_str)//"(a))", merge('##', '  ', abs(z)<2)              │
+│     17 │ end program mandel                                                           │
+│                                                                                       │
+╘═══════════════════════════════════════════════════════════════════════════════════════╛
