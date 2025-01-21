@@ -1,13 +1,29 @@
 ---
-name: pub
+name: build
 on:
   push:
-    tags: ['*']
+    branches: [main]
+    paths:
+      - bited-build.toml
+      - src/**
+      - flake.nix
+      - flake.lock
+      - default.nix
+      - .github/workflows/build.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - bited-build.toml
+      - src/**
+      - flake.nix
+      - flake.lock
+      - default.nix
+      - .github/workflows/build.yml
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  pub:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -17,16 +33,14 @@ jobs:
           ref: main
           persist-credentials: false
           fetch-depth: 0
-      - run: echo -n ${{ github.ref_name }} > VERSION
       - uses: nixbuild/nix-quick-install-action@v29
       - uses: DeterminateSystems/magic-nix-cache-action@main
-      - run: nix build .#anakron-release
+      - run: nix build .#anakron
       - name: push
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           file_pattern: VERSION
-      - name: release
-        uses: svenstaro/upload-release-action@2.7.0
+      - name: artifacts
+        uses: actions/upload-artifacts@v4
         with:
-          file: result/share/fonts/*
-          file_glob: true
+          path: result/share/fonts/*
