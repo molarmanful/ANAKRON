@@ -20,13 +20,7 @@ jobs:
       - run: echo -n ${{ github.ref_name }} > VERSION
       - uses: nixbuild/nix-quick-install-action@v29
       - uses: DeterminateSystems/magic-nix-cache-action@main
-      - run: nix build .#anakron
-      - name: zip
-        run: |
-          mkdir -p result/ANAKRON
-          cp -r result/share/fonts/. result/ANAKRON
-          cp {README.md,LICENSE,AUTHORS} result/ANAKRON
-          zip -r result/share/fonts/ANAKRON_${{ github.ref_name }}.zip result/ANAKRON
+      - run: nix build .#anakron-release
       - name: push
         uses: stefanzweifel/git-auto-commit-action@v5
         with:

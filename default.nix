@@ -3,10 +3,12 @@
   version,
   cfg ? "",
   nerd ? false,
+  release ? false,
   P,
 
   lib,
   stdenvNoCC,
+  zip,
   ...
 }:
 
@@ -26,6 +28,9 @@ stdenvNoCC.mkDerivation {
     runHook preInstall
     mkdir -p $out/share/fonts
     cp -r out/. $out/share/fonts
+    ${lib.optionalString release ''
+      ${zip}/bin/zip -r $out/share/fonts/ANAKRON_${version}.zip $out/share/fonts
+    ''}
     runHook postInstall
   '';
 }
