@@ -17,17 +17,18 @@ jobs:
           ref: main
           persist-credentials: false
           fetch-depth: 0
-      - run: echo -n ${{ github.ref_name }} > VERSION
       - uses: nixbuild/nix-quick-install-action@v29
       - uses: DeterminateSystems/magic-nix-cache-action@main
+      - run: echo -n ${{ github.ref_name }} > VERSION
       - run: nix build .#anakron-release
-      - name: push
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          file_pattern: VERSION
-          commit_message: bump to ${{ github.ref_name }}
       - name: release
         uses: svenstaro/upload-release-action@2.7.0
         with:
           file: result/share/fonts/*
           file_glob: true
+      - run: ls -a
+      - name: push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: VERSION
+          commit_message: bump to ${{ github.ref_name }}
