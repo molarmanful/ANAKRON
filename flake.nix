@@ -37,10 +37,6 @@
           in
           {
             ${name} = build { pname = name; };
-            "${name}-release" = build {
-              pname = "${name}-release";
-              release = true;
-            };
             "${name}-img" = pkgs.callPackage ./img.nix {
               inherit P;
               name = "${name}-img";

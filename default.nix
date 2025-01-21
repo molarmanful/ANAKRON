@@ -3,7 +3,6 @@
   version,
   cfg ? "",
   nerd ? false,
-  release ? false,
   P,
 
   lib,
@@ -19,8 +18,7 @@ stdenvNoCC.mkDerivation {
     runHook preBuild
     rm -rf out
     ${P.bited-build}/bin/bited-build ${cfg} \
-      ${lib.optionalString nerd "--nerd"} \
-      ${lib.optionalString release "--release"}
+      ${lib.optionalString nerd "--nerd"}
     runHook postBuild
   '';
 

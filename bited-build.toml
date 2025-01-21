@@ -1,6 +1,5 @@
 [ANAKRON]
 xs = [2, 3]
-zip_includes = ["README.md", "LICENSE", "AUTHORS"]
 x_format = "{name}_{x}x"
 ttfix = '''
 f.os2_version = 4
