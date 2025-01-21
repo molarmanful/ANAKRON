@@ -37,7 +37,7 @@ sample = [
   # "engalt",
   # "pretty",
   # "math",
-  # "box",
+  "box",
   # "braille",
 ]
 all = ["header", "sample"]
