@@ -1,6 +1,8 @@
 <div align="center">
 
-![anakron all](img/all.png)
+![anakron](img/header.png)
+
+![anakron samples](img/sample.png)
 
 ![anakron glyphs](img/chars.png)
 
