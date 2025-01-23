@@ -176,6 +176,51 @@
 │                                                                                       │
 └───────────────────────────────────────────────────────────────────────────────────────┘
 ┌───────────────────────────────────────────────────────────────────────────────────────┐
+│                                           C                                           │
+├───────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                       │
+│       1 │ #include <stdio.h>                                                          │
+│       2 │ #include <stdlib.h>                                                         │
+│       3 │ #include <resolv.h>                                                         │
+│       4 │ #include <fcntl.h>                                                          │
+│       5 │ #include <unistd.h>                                                         │
+│       6 │ #include <sys/types.h>                                                      │
+│       7 │ #include <sys/stat.h>                                                       │
+│       8 │ #include <sys/mman.h>                                                       │
+│       9 │                                                                             │
+│      10 │ int main() {                                                                │
+│      11 │   int fin = open("favicon.ico",  O_RDONLY);                                 │
+│      12 │   if (fin == -1)                                                            │
+│      13 │     return 1;                                                               │
+│      14 │                                                                             │
+│      15 │   struct stat st;                                                           │
+│      16 │   if (fstat(fin, &st))                                                      │
+│      17 │     return 1;                                                               │
+│      18 │                                                                             │
+│      19 │   void *bi = mmap(0, st.st_size, PROT_READ, MAP_PRIVATE, fin, 0);           │
+│      20 │   if (bi == MAP_FAILED)                                                     │
+│      21 │     return 1;                                                               │
+│      22 │                                                                             │
+│      23 │   int outLength = ((st.st_size + 2) / 3) * 4 + 1;                           │
+│      24 │   char *outBuffer = malloc(outLength);                                      │
+│      25 │   if (outBuffer == NULL)                                                    │
+│      26 │     return 1;                                                               │
+│      27 │                                                                             │
+│      28 │   int encodedLength = b64_ntop(bi, st.st_size, outBuffer, outLength);       │
+│      29 │   if (encodedLength < 0)                                                    │
+│      30 │     return 1;                                                               │
+│      31 │                                                                             │
+│      32 │   puts(outBuffer);                                                          │
+│      33 │                                                                             │
+│      34 │   free(outBuffer);                                                          │
+│      35 │   munmap(bi, st.st_size);                                                   │
+│      36 │   close(fin);                                                               │
+│      37 │                                                                             │
+│      38 │   return 0;                                                                 │
+│      39 │ }                                                                           │
+│                                                                                       │
+└───────────────────────────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────────────┐
 │                                     BOX DRAWINGS                                      │
 ├───────────────────────────────────────────────────────────────────────────────────────┤
 │                                                                                       │
