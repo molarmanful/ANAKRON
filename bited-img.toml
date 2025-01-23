@@ -34,6 +34,7 @@ sample = [
   "c64basic",
   "fortran",
   "pascal",
+  "c",
   # "engalt",
   # "pretty",
   # "math",
