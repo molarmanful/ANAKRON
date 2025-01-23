@@ -9,8 +9,8 @@ f.os2_weight_width_slope_only = True
 '''
 
 [ANAKRON.sfnt]
-"UniqueID" = "molarmanful: anakron: 2024"
-"Vendor URL" = "https://github.com/molarmanful/anakron"
+"UniqueID" = "molarmanful: ANAKRON: 2024"
+"Vendor URL" = "https://github.com/molarmanful/ANAKRON"
 "Designer" = "Benjamin Pang"
 "Designer URL" = "https://benpa.ng"
 "License" = "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
