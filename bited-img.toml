@@ -35,6 +35,7 @@ sample = [
   "fortran",
   "pascal",
   "c",
+  "apl",
   # "engalt",
   # "pretty",
   # "math",
