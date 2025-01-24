@@ -36,10 +36,8 @@ sample = [
   "pascal",
   "c",
   "apl",
-  # "engalt",
-  # "pretty",
-  # "math",
+  "bqn",
+  "uiua",
   "box",
-  # "braille",
 ]
 all = ["header", "sample"]
