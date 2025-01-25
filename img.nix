@@ -1,13 +1,13 @@
 {
   name,
   cfg ? "",
-  P,
 
   writeShellApplication,
+  bited-img,
   ...
 }:
 
 writeShellApplication {
   inherit name;
-  text = "${P.bited-img}/bin/bited-img ${cfg}";
+  text = "${bited-img}/bin/bited-img ${cfg}";
 }
