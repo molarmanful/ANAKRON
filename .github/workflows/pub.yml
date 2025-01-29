@@ -29,3 +29,9 @@ jobs:
         with:
           file: result/share/fonts/*
           file_glob: true
+      - uses: "DeterminateSystems/flakehub-push@main"
+        with:
+          visibility: "public"
+          name: "molarmanful/ANAKRON"
+          tag: "${{ inputs.tag }}"
+          include-output-paths: true
