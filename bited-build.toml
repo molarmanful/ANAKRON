@@ -1,4 +1,5 @@
-[ANAKRON]
+[[fonts]]
+name = "ANAKRON"
 xs = [2, 3]
 ttfix = '''
 f.os2_version = 4
@@ -10,7 +11,7 @@ for g in f.glyphs():
     g.width = 800
 '''
 
-[ANAKRON.sfnt]
+[[fonts.sfnt]]
 "UniqueID" = "molarmanful: ANAKRON: 2024"
 "Vendor URL" = "https://github.com/molarmanful/ANAKRON"
 "Designer" = "Benjamin Pang"
