@@ -1,10 +1,11 @@
-[ANAKRON]
+[[fonts]]
+name = "ANAKRON"
 font_size = 12
 
-[ANAKRON.chars]
+[fonts.chars]
 width = 40
 
-[ANAKRON.clrs]
+[fonts.clrs]
 bg = "#000000"
 fg = "#ffffff"
 base = [
@@ -26,8 +27,9 @@ base = [
   "#ffffff",
 ]
 
-[ANAKRON.gens]
-sample = [
+[[fonts.gens]]
+name = "sample"
+txts = [
   "prog",
   "eng",
   "multi",
@@ -40,4 +42,7 @@ sample = [
   "uiua",
   "box",
 ]
-all = ["header", "sample"]
+
+[[fonts.gens]]
+name = "all"
+txts = ["header", "sample"]
