@@ -6,8 +6,10 @@
     flake-utils.url = "github:numtide/flake-utils";
     bited-utils = {
       url = "github:molarmanful/bited-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
   };
 
