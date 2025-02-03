@@ -11,8 +11,8 @@ for g in f.glyphs():
     g.width = 800
 '''
 
-[[fonts.sfnt]]
-"UniqueID" = "molarmanful: ANAKRON: 2024"
+[fonts.sfnt]
+"UniqueID" = "molarmanful: ANAKRON: 2025"
 "Vendor URL" = "https://github.com/molarmanful/ANAKRON"
 "Designer" = "Benjamin Pang"
 "Designer URL" = "https://benpa.ng"
