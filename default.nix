@@ -29,7 +29,7 @@ stdenvNoCC.mkDerivation {
     mkdir -p $out/share/fonts
     cp -r out/. $out/share/fonts
     ${lib.optionalString release ''
-      ${zip}/bin/zip -r $out/share/fonts/ANAKRON_${version}.zip $out/share/fonts
+      ${zip}/bin/zip -r $out/share/fonts/${pname}_${version}.zip $out/share/fonts
     ''}
     runHook postInstall
   '';

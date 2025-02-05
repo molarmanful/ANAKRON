@@ -36,7 +36,7 @@ jobs:
           fetch-depth: 0
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/flakehub-cache-action@main
-      - run: nix build .#anakron
+      - run: nix build
       - name: artifacts
         uses: actions/upload-artifact@v4
         with:
