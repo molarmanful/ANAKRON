@@ -15,6 +15,7 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       flake-utils,
       bited-utils,
@@ -32,7 +33,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
         bupkgs = bited-utils.packages.${system};
       in
-      rec {
+      {
 
         packages =
           let
@@ -56,7 +57,7 @@
               inherit (bupkgs) bited-img;
               name = "${name}-img";
             };
-            default = packages.${name};
+            default = self.packages.${name};
           };
 
         devShells.default = pkgs.mkShell {
