@@ -40,7 +40,7 @@ virtual socks off!
 </div>
 </details>
 
-<details active>
+<details open>
 <summary><strong>Samples</strong></summary>
 <div align="center">
 
