@@ -1,5 +1,5 @@
 {
-  description = "A retro bitmap font made for the modern screen";
+  description = "A thicc retrofuturistic bitmap font made for the modern screen";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
