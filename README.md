@@ -6,9 +6,11 @@
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Overview](#overview)
 - [Gallery](#gallery)
 - [Installation](#installation)
+  - [Nix Flakes](#nix-flakes)
 - [Contributing](#contributing)
 - [Licensing](#licensing)
 
