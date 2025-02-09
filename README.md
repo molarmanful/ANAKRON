@@ -68,8 +68,8 @@ VSCode), then use the TTF at font sizes that are multiples of 12px.
 ### Nix Flakes
 
 ANAKRON releases are also pushed to
-[FlakeHub](https://flakehub.com/flake/molarmanful/ANAKRON). `ANAKRON` (also
-aliased to `default`) is the base package, while `ANAKRON-nerd` includes Nerd
+[FlakeHub](https://flakehub.com/flake/molarmanful/ANAKRON). `anakron` (also
+aliased to `default`) is the base package, while `anakron-nerd` includes Nerd
 Fonts patches.
 
 ## Contributing
