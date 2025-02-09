@@ -48,9 +48,14 @@
           in
           {
             ${name} = build { pname = name; };
+            "${name}-nerd" = build {
+              pname = "${name}-nerd";
+              nerd = true;
+            };
             "${name}-release" = build {
               pname = "${name}-release";
               release = true;
+              nerd = true;
             };
             "${name}-img" = pkgs.callPackage ./img.nix {
               inherit (bupkgs) bited-img;

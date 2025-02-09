@@ -52,7 +52,7 @@ more modern pixel fonts, ANAKRON is designed to feel compact like an old-school
 
 Download from [Releases](https://github.com/molarmanful/ANAKRON/releases).
 Included are bitmap formats - BDF, OTB, PCF, DFONT (for Mac users) - as well as
-TTF and WOFF. 2x/3x versions are available for HiDPI screens. Note that PCF
+TTF and WOFF2. 2x/3x versions are available for HiDPI screens. Note that PCF
 doesn't contain glyphs past U+FFFF.
 
 For the crispiest viewing experience, try to use the bitmap formats when
