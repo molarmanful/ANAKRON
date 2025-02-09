@@ -65,6 +65,13 @@ VSCode), then use the TTF at font sizes that are multiples of 12px.
 >
 > e.g. 12px on a 96dpi screen is `12px * 72 / 96dpi = 9pt`.
 
+### Nix Flakes
+
+ANAKRON releases are also pushed to
+[FlakeHub](https://flakehub.com/flake/molarmanful/ANAKRON). `ANAKRON` (also
+aliased to `default`) is the base package, while `ANAKRON-nerd` includes Nerd
+Fonts patches.
+
 ## Contributing
 
 Issues, feature/glyph requests, and pull requests are all welcome!

@@ -22,7 +22,7 @@
     }:
 
     let
-      name = "anakron";
+      name = "ANAKRON";
       version = builtins.readFile ./VERSION;
     in
 
