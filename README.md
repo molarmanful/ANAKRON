@@ -17,7 +17,7 @@
 **ANAKRON** is an 8x12 bold monospace bitmap font suitable for programming.
 Blending the thick strokes of the (C/E/V)GA era fonts with the thin strokes of
 more modern pixel fonts, ANAKRON is designed to feel compact like an old-school
-8x8 without compromising on Unicode support.
+8x8 without compromising on Unicode support or usability.
 
 ## Gallery
 
