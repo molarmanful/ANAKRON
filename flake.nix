@@ -41,7 +41,7 @@
               pkgs.callPackage ./. (
                 {
                   inherit version;
-                  inherit (bupkgs) bited-build;
+                  inherit (bupkgs) bited-build bitsnpicas;
                 }
                 // o
               );
@@ -79,6 +79,7 @@
             python313Packages.mdformat-gfm
             python313Packages.mdformat-gfm-alerts
             bupkgs.bited-clr
+            bupkgs.bitsnpicas
           ];
         };
 
