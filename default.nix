@@ -26,11 +26,12 @@ stdenvNoCC.mkDerivation {
 
   installPhase = ''
     runHook preInstall
-    mkdir -p $out/share/fonts
+    mkdir -p $out/share/fonts $out/share/consolefonts
     cp -r out/. $out/share/fonts
     ${lib.optionalString release ''
       ${zip}/bin/zip -r $out/share/fonts/${pname}_${version}.zip $out/share/fonts
     ''}
+    mv out/*.psfu.gz $out/share/consolefonts
     runHook postInstall
   '';
 }
