@@ -3,86 +3,81 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
-    bited-utils = {
-      url = "github:molarmanful/bited-utils";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
+    systems.url = "systems";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    devshell.url = "github:numtide/devshell";
+    bited-utils.url = "github:molarmanful/bited-utils";
   };
 
   outputs =
-    {
-      nixpkgs,
-      flake-utils,
-      bited-utils,
-      ...
-    }:
+    inputs@{ systems, flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.devshell.flakeModule
+        inputs.bited-utils.flakeModule
+      ];
+      systems = import systems;
+      perSystem =
+        { config, pkgs, ... }:
+        {
 
-    let
-      name = "anakron";
-      version = builtins.readFile ./VERSION;
-    in
-
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-        bupkgs = bited-utils.packages.${system};
-      in
-      rec {
-
-        packages =
-          let
-            build =
-              o:
-              pkgs.callPackage ./. (
-                {
-                  inherit version;
-                  inherit (bupkgs) bited-build bitsnpicas;
-                }
-                // o
-              );
-          in
-          {
-            ${name} = build { pname = name; };
-            "${name}-nerd" = build {
-              pname = "${name}-nerd";
-              nerd = true;
-            };
-            "${name}-release" = build {
-              pname = "${name}-release";
-              release = true;
-              nerd = true;
-            };
-            "${name}-img" = pkgs.callPackage ./img.nix {
-              inherit (bupkgs) bited-img;
-              name = "${name}-img";
-            };
-            default = packages.${name};
+          bited-utils = {
+            name = "ANAKRON";
+            version = builtins.readFile ./VERSION;
+            src = ./.;
+            nerd = true;
+            buildTransformer =
+              build:
+              build.overrideAttrs {
+                postBuild = ''
+                  ${pkgs.bdf2psf}/bin/bdf2psf --fb src/ANAKRON.bdf \
+                    ${pkgs.bdf2psf}/share/bdf2psf/standard.equivalents \
+                    src/ANAKRON.set \
+                    512 out/ANAKRON.psfu
+                '';
+              };
           };
 
-        devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            nil
-            nixd
-            nixfmt-rfc-style
-            statix
-            deadnix
-            marksman
-            markdownlint-cli
-            actionlint
-            taplo
-            mdformat
-            python313Packages.mdformat-gfm
-            python313Packages.mdformat-gfm-alerts
-            bupkgs.bited-clr
-            bupkgs.bitsnpicas
-          ];
-        };
+          devshells.default = {
 
-      }
-    );
+            commands = with pkgs; [
+              {
+                package = nil;
+                category = "lsp";
+              }
+              {
+                package = nixd;
+                category = "lsp";
+              }
+              {
+                package = nixfmt-rfc-style;
+                category = "formatter";
+              }
+              {
+                package = statix;
+                category = "linter";
+              }
+              {
+                package = deadnix;
+                category = "linter";
+              }
+              { package = taplo; }
+              {
+                package = marksman;
+                category = "lsp";
+              }
+              {
+                package = mdformat;
+                category = "formatter";
+              }
+              { package = config.bited-utils.bited-clr; }
+            ];
+
+            packages = with pkgs; [
+              python313Packages.mdformat-gfm
+              python313Packages.mdformat-gfm-alerts
+            ];
+          };
+        };
+    };
 }
