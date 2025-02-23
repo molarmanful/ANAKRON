@@ -35,6 +35,10 @@
                     src/ANAKRON.set \
                     512 out/ANAKRON.psfu
                 '';
+                postInstall = ''
+                  mkdir -p $out/share/consolefonts
+                  cp out/*.psfu $out/share/consolefonts
+                '';
               };
           };
 
