@@ -1,8 +1,7 @@
----
 name: pub
 on:
   push:
-    tags: ['*']
+    tags: ['v*']
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -18,7 +17,7 @@ jobs:
           ref: main
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/flakehub-cache-action@main
-      - run: println "%s" "${{ github.ref_name }}" > VERSION
+      - run: println "%s" "${{ github.ref_name }}" | sed 's/^v//' > VERSION
       - run: nix build .#ANAKRON-release
       - name: push
         uses: stefanzweifel/git-auto-commit-action@v5
