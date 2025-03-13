@@ -17,7 +17,7 @@ jobs:
           ref: main
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/flakehub-cache-action@main
-      - run: printf "%s" "${{ github.ref_name }}" | sed 's/^v//' > VERSION
+      - run: printf '%s' '${{ github.ref_name }}' | sed 's/^v//' > VERSION
       - run: nix build .#ANAKRON-release
       - name: push
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -29,9 +29,9 @@ jobs:
         with:
           file: result/share/fonts/*
           file_glob: true
-      - uses: "DeterminateSystems/flakehub-push@main"
+      - uses: DeterminateSystems/flakehub-push@main
         with:
-          visibility: "public"
-          name: "molarmanful/ANAKRON"
-          tag: "${{ inputs.tag }}"
+          visibility: public
+          name: molarmanful/ANAKRON
+          tag: ${{ inputs.tag }}
           include-output-paths: true
