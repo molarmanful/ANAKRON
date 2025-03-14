@@ -67,6 +67,11 @@ VSCode), then use the TTF at font sizes that are multiples of 12px.
 >
 > e.g. 12px on a 96dpi screen is `12px * 72 / 96dpi = 9pt`.
 
+### Nixpkgs
+
+Thanks to [@ejiektpobehuk](https://github.com/ejiektpobehuk), ANAKRON is
+available on Nixpkgs as `anakron`.
+
 ### Nix Flakes
 
 ANAKRON releases are also pushed to
