@@ -36,8 +36,7 @@
                     512 out/ANAKRON.psfu
                 '';
                 postInstall = ''
-                  mkdir -p $out/share/consolefonts
-                  cp out/*.psfu $out/share/consolefonts
+                  install -Dm644 out/*.psfu -t $out/share/consolefonts
                 '';
               };
           };
