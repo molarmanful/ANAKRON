@@ -2,7 +2,7 @@
   description = "A thicc retrofuturistic bitmap font made for the modern screen";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
     systems.url = "systems";
     flake-parts.url = "github:hercules-ci/flake-parts";
     devshell.url = "github:numtide/devshell";
